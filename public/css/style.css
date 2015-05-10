@@ -1,0 +1,549 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: 100%;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+
+/**
+ -------------------------------------    Header
+*/
+
+header{
+    width: 100%;
+    height: 4rem;
+    background: #4c4c4c;
+}
+
+header .headerContainer{
+    padding: 0 1rem 0 1rem;
+}
+
+.logo{
+    margin-top: 1.5rem;
+    float: left;
+    color: white;
+}
+
+.menu{
+    margin-top: 1.5rem;
+    float: right;
+}
+
+.menu li{
+    display: inline-block;
+    margin-left: 0.8rem;
+
+}
+
+.menu li a{
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.menu li a:hover{
+    color: #4c4c4c;
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+
+
+
+
+
+
+/* Lightbox panel with some content */
+.lightbox-panel-login, .lightbox-panel-register, .lightbox-panel-recover{
+    display:none;
+    position:absolute;
+    top:100px;
+    width:40%;
+    background: rgba(0, 0, 0, 0.8);
+    padding:50px 15px 30px 15px;
+    border:2px solid #CCCCCC;
+    z-index:1001;
+    margin-left: 30%; /*For small screen 2.5% For big window 5%*/
+    margin-right: 30%;
+    box-sizing:border-box;
+    color: white;
+    text-align: center;
+    min-width: 240px;
+}
+
+.lightbox-panel-login h3, .lightbox-panel-register h3 , .lightbox-panel-recover h3{
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 30px;
+
+}
+
+.close-login, .close-register, .close-recover{
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: inline-block;
+
+}
+
+.close-panel-login, .close-panel-register, .close-panel-recover{
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    display: block;
+    position: relative;
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.close-panel-login:hover, .close-panel-register:hover, .close-panel-recover:hover{
+    text-decoration: underline;
+}
+
+.forgot_pass{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 14px;
+}
+
+.forgot_pass:hover{
+    text-decoration: underline;
+}
+
+
+#login_form, #register_form, #recover_form{
+    float: left;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#login_form .login_pass, #login_form .login_login, #login_form .sbmt-btn, #register_form .register_name, #register_form .register_login,
+#register_form .register_email, #register_form .register_password, #register_form .register_password_rt, #register_form .sbmt-btn, #recover_form .sbmt-btn, #recover_form .recover_email{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 5px;
+    height: 30px;
+    width: 70%;
+    box-sizing:border-box;
+    -webkit-appearance: none;
+    padding-left: 10px;
+}
+
+.login_remember{
+    color: #fff;
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.login_remember_text{
+    color: #fff;
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 18px;
+    margin-top: 22px;
+}
+
+
+.sbmt-btn{
+    background-color: white;
+    color:green;
+    font-weight:bold;
+    border: 2px solid green;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.sbmt-btn:hover{
+    background: green;
+    color: white;
+}
+
+.profile_links{
+    float: right;
+    position: relative;
+    margin-right: 50px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.register, .login{
+    float: right;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial, Avenir next, sans-serif;
+    /*font-size: 16px;*/
+    margin-right: 1rem;
+    /*position: relative;*/
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    border: 1px solid #fff;
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    width: 4rem;
+    text-align: center;
+}
+
+.profile_page, .profile_logout{
+    float: right;
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 16px;
+    margin-right: 50px;
+}
+
+.profile_logout{
+    margin-right: 0px !important;
+}
+
+.register{
+    /*margin-right: 10px;*/
+}
+
+.register:hover, .login:hover, .profile_page:hover, .profile_logout:hover{
+    background: #ffffff;
+    color: #4c4c4c;
+}
+
+.register_from_login{
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial, Avenir next, sans-serif;
+    font-size: 14px;
+}
+
+.register_from_login:hover{
+    text-decoration: underline;
+}
+
+.profile_page{
+    float: left;
+    margin-right: 10px;
+    position: relative;
+
+}
+
+.profile_logout{
+    margin-right: 10px;
+    float: left;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ -------------------------------------    Container
+*/
+
+
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.headLine{
+    margin-top: 2rem;
+}
+
+
+.sectionHeadLine{
+    margin-top: 1.5rem;
+}
+
+
+
+
+
+article{
+    /*border-bottom: 1px solid #4c4c4c;*/
+    border-top: 1px solid #4c4c4c;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.productImageLink{
+    float: left;
+    /*max-width: 200px;*/
+
+}
+
+.productImage{
+    float: left;
+    /*width: 100%;*/
+    width: 180px;
+    max-height: 100px;
+    border: 1px solid #4c4c4c;
+    border-radius: 10px;
+}
+
+.productContent{
+    float: left;
+}
+
+.productHeadLine{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    float: left;
+
+}
+
+.bestelKnoop{
+    float: left;
+    clear: both;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #28a010;
+    border: 1px solid #28a010;
+    border-radius: 5px;
+    padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.bestelKnoop:hover{
+    color: #fff;
+    background: #28a010;
+}
+
+.verwijderKnoop{
+    float: left;
+    clear: both;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 5px;
+    padding: 0.4rem 0.5rem 0.4rem 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.verwijderKnoop:hover{
+    color: #fff;
+    background: #ff0000;
+}
+
+
+
+.productDiscription{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    float: left;
+    clear: both;
+}
+
+
+
+
+/**
+--------------------------------------------------- BELEG KEUZE
+*/
+
+
+.belegForm{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.belegCheckLabel{
+    clear: both;
+    float: left;
+    margin-left: 1rem;
+    margin-top: 0.7rem;
+    margin-bottom: 0.2rem;
+    font-size: 1.5rem;
+}
+
+
+.belegCheck{
+    float: left;
+    margin-top: 1.3rem;
+    margin-left: 1rem;
+}
+
+.sendButton{
+    background: white;
+    padding: 1rem 1.5rem;
+    color: green;
+    font-size: 1.1rem;
+    float: right;
+    margin-top: 2rem;
+    position: relative;
+    border: 1px solid green;
+}
+
+
+.sendButton:hover{
+    cursor: pointer;
+    background: green;
+    color: white;
+}
+
+
+.controlKnopen{
+    padding: 0;
+    margin: 0 auto;
+    width: 29rem;
+    margin-top: 3rem;
+    box-sizing: border-box;
+}
+
+
+.verderWinkelenKnoop, .bestellingPlaatsenKnoop{
+    background: white;
+    padding: 1rem 1.5rem;
+    color: green;
+    float: left;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    position: relative;
+    border: 1px solid green;
+    text-decoration: none;
+    text-align: center;
+    width: 11rem;
+}
+
+.bestellingPlaatsenKnoop{
+    margin-left: 0.8rem;
+}
+
+
+.verderWinkelenKnoop:hover, .bestellingPlaatsenKnoop:hover{
+    cursor: pointer;
+    background: green;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+footer{
+    margin-top: 5rem;
+    height: 5rem;
+    background: #4c4c4c;
+}
+
+.copyright{
+    color: white;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+clearfix hack
+http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+.clearFix:before, .clearFix:after {
+    content: " ";
+    display: table;
+}
+.clearFix:after {
+    clear: both;
+}
+
+/*enkel voor IE6/7 */
+.clearFix {
+    zoom: 1;
+}
+
+
+
+.clear{
+    clear: both;
+}
+
