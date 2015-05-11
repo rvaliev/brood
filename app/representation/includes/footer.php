@@ -20,8 +20,8 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 
 <!-------------------------------------------------------------------END CONTENT--------------------------------------------------------->
 
-<script src="../../../public/js/jquery-1.11.3.min.js"></script>
-<script src="../../../public/js/scripts.js"></script>
+<script src="public/js/jquery-1.11.3.min.js"></script>
+<script src="public/js/scripts.js"></script>
 
 </body>
 </html>

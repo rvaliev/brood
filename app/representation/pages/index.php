@@ -10,7 +10,7 @@
     <div class="container">
         <article class="clearFix">
             <a class="productImageLink" href="#">
-                <img class="productImage" src="../../../public/img/klein_wit.jpg" alt="broodje"/>
+                <img class="productImage" src="public/img/klein_wit.jpg" alt="broodje"/>
             </a>
             <div class="productContent clearFix">
                 <h1 class="productHeadLine">
@@ -25,7 +25,7 @@
 
         <article class="clearFix">
             <a class="productImageLink" href="#">
-                <img class="productImage" src="../../../public/img/klein_bruin.jpg" alt="broodje"/>
+                <img class="productImage" src="public/img/klein_bruin.jpg" alt="broodje"/>
             </a>
             <div class="productContent clearFix">
                 <h1 class="productHeadLine">
@@ -40,7 +40,7 @@
 
         <article class="clearFix">
             <a class="productImageLink" href="#">
-                <img class="productImage" src="../../../public/img/groot_wit.jpg" alt="broodje"/>
+                <img class="productImage" src="public/img/groot_wit.jpg" alt="broodje"/>
             </a>
             <div class="productContent clearFix">
                 <h1 class="productHeadLine">
@@ -55,7 +55,7 @@
 
         <article class="clearFix">
             <a class="productImageLink" href="#">
-                <img class="productImage" src="../../../public/img/groot_bruin.jpg" alt="broodje"/>
+                <img class="productImage" src="public/img/groot_bruin.jpg" alt="broodje"/>
             </a>
             <div class="productContent clearFix">
                 <h1 class="productHeadLine">

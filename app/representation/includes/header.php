@@ -6,7 +6,7 @@
     <meta name="description" content="" />
 
     <link rel="shortcut icon" href="favicon.png" />
-    <link rel="stylesheet" href="../../../public/css/style.css" /> <!--пользовательские стили-->
+    <link rel="stylesheet" href="public/css/style.css" /> <!--пользовательские стили-->
 
 </head>
 <body>

@@ -3,6 +3,20 @@
 
 include('app/representation/includes/header.php');
 
-include('app/representation/pages/index.php');
+
+
+
+$linkToPage = "app/representation/pages/" . $page . ".php";
+include($linkToPage);
+
+
+
+
+
+
+
+
+
+
 
 include('app/representation/includes/footer.php');

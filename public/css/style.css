@@ -3,9 +3,15 @@
     padding: 0;
 }
 
+html{
+    min-height: 100%;
+    position: relative;
+}
+
 body{
     font-size: 100%;
     font-family: Arial, Verdana, sans-serif;
+    margin-bottom: 10rem;
 }
 
 
@@ -418,7 +424,7 @@ article{
 .controlKnopen{
     padding: 0;
     margin: 0 auto;
-    width: 29rem;
+    width: 30rem;
     margin-top: 3rem;
     box-sizing: border-box;
 }
@@ -458,9 +464,12 @@ article{
 
 
 footer{
-    margin-top: 5rem;
     height: 5rem;
     background: #4c4c4c;
+    width: 100%;
+
+    bottom: 0;
+    position: absolute;
 }
 
 .copyright{
@@ -468,6 +477,8 @@ footer{
     font-size: 0.8rem;
     text-align: center;
     margin-top: 2rem;
+
+
 }
 
 
