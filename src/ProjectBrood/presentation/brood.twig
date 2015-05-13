@@ -1,0 +1,31 @@
+{% extends "maintemplate.twig" %}
+
+{% block content %}
+    <section class="clearFix">
+        <div class="container">
+            <h1 class="headLine">Welkom bij broodjes-online</h1>
+            <h3 class="sectionHeadLine">Stap 1: Kies één broodje:</h3>
+        </div>
+    </section>
+
+    {% for brood in broden %}
+        <section class="clearFix">
+            <div class="container">
+                <article class="clearFix">
+                    <a class="productImageLink" href="#">
+                        <img class="productImage" src="src/ProjectBrood/presentation/img/{{ brood.getImage() }}" alt="broodje"/>
+                    </a>
+                    <div class="productContent clearFix">
+                        <h1 class="productHeadLine">
+                            {{ brood.getNaam() }}
+                        </h1>
+                        <a class="bestelKnoop show-login" href="beleg.php?id={{ brood.getId() }}">Neem er één</a>
+                        <h3 class="productDiscription">
+                            {{ brood.getOmschrijving() }}
+                        </h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+    {% endfor %}
+{% endblock %}

@@ -1,8 +1,7 @@
 <?php
 
-namespace Brood\Business;
-use Brood\Data\BelegDAO;
-require_once('src/resource/data/BelegDAO.class.php');
+namespace src\ProjectBrood\Business;
+use src\ProjectBrood\Data\BelegDAO;
 
 class BelegBusiness
 {

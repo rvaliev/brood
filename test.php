@@ -1,8 +1,16 @@
 <?php
 
 
-include_once('src/resource/business/BroodBusiness.class.php');
-use Brood\Business\BroodBusiness;
+use src\ProjectBrood\business\BroodBusiness;
+use Doctrine\Common\ClassLoader;
+
+
+require_once'Doctrine/Common/ClassLoader.php';
+$classLoader = new ClassLoader("src");
+$classLoader->register();
+
+
+
 
 $obj = new BroodBusiness();
 

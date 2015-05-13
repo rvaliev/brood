@@ -1,6 +1,6 @@
 <?php
 
-namespace Brood\Entities;
+namespace src\ProjectBrood\entities;
 
 
 class Brood

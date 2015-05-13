@@ -1,8 +1,7 @@
 <?php
 
-namespace Brood\Business;
-use Brood\Data\BroodDAO;
-require_once('src/resource/data/BroodDAO.class.php');
+namespace src\ProjectBrood\business;
+use src\ProjectBrood\data\BroodDAO;
 
 class BroodBusiness
 {

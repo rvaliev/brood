@@ -1,10 +1,8 @@
 <?php
 
-namespace Brood\Data;
-require_once('src/resource/data/DBConnect.class.php');
-require_once('src/resource/entities/Beleg.class.php');
-use Brood\Entities\Beleg;
-use Brood\Data\DBConnect;
+namespace src\ProjectBrood\data;
+use src\ProjectBrood\entities\Beleg;
+use src\ProjectBrood\data\DBConnect;
 use PDO;
 use Exception;
 

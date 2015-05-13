@@ -1,5 +1,5 @@
 <?php
-namespace Brood\Data;
+namespace src\ProjectBrood\data;
 
 use PDO;
 use PDOException;
@@ -18,7 +18,7 @@ class DBConnect
             host=localhost;
             dbname=broodjeszaak;
             charset=utf8',
-                'root',
+                'admin',
                 '',
                 array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
 

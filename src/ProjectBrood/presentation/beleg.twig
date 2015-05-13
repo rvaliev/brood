@@ -1,0 +1,45 @@
+{% extends "maintemplate.twig" %}
+
+{% block content %}
+
+<section class="clearFix">
+    <div class="container">
+        <h1 class="headLine">Welkom bij broodjes-online</h1>
+        <h3 class="sectionHeadLine">Stap 2: Kies ingredienten:</h3>
+    </div>
+</section>
+
+
+
+<form class="clearFix belegForm" action="#" method="post">
+    <input type="hidden" value="{{ brood_id }}" name="broodSoort"/>
+
+    {% for beleg in belegen %}
+        <section class="clearFix">
+            <div class="container">
+                <article class="clearFix">
+                    <a class="productImageLink" href="#">
+                        <img class="productImage" src="src/ProjectBrood/presentation/img/{{ beleg.getImage() }}" alt="broodje"/>
+                    </a>
+                    <div class="productContent clearFix">
+                        <h1 class="productHeadLine">
+                            {{ beleg.getNaam() }}
+                        </h1>
+
+                        <label class="belegCheckLabel" for="sla">Kies:</label>
+                        <input class="belegCheck" type="checkbox" name="{{ beleg.getId() }}"/>
+
+                        <h3 class="productDiscription">
+                            {{ beleg.getOmschrijving() }}
+                        </h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+    {% endfor %}
+
+    <input class="sendButton" type="submit" name="sendButton" value="Verder"/>
+</form>
+
+
+{% endblock %}
