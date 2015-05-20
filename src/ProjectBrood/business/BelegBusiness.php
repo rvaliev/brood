@@ -14,4 +14,12 @@ class BelegBusiness
         $this->lijst = $this->belegDAO->getAll();
         return $this->lijst;
     }
+
+
+    public function overzichtBelegById($beleg_id)
+    {
+        $this->belegDAO = new BelegDAO();
+        $this->lijst = $this->belegDAO->getAllById($beleg_id);
+        return $this->lijst;
+    }
 }

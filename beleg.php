@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 use src\ProjectBrood\business\BelegBusiness;
 use Doctrine\Common\ClassLoader;
 
@@ -48,13 +49,63 @@ else
  * Check if 'Verder' button has been pressed.
  * If true, go to product overview.
  */
+
+if (empty($_SESSION['bestelling']))
+{
+    $_SESSION['productCounter'] = 0;
+    $_SESSION['bestelling'][0]['aantal'] = 1;
+}
+
 if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 {
 
-    echo "<pre>";
-    print_r($_POST);
-    echo "</pre>";
+
+    $_SESSION['keyExists'] = false;
+
+
+    foreach ($_SESSION['bestelling'] as $bestKey => $bestRow)
+    {
+        if (array_key_exists($_POST['broodSoort'], $_SESSION['bestelling'][$bestKey]))
+        {
+
+            if ($_SESSION['bestelling'][$bestKey][$_POST['broodSoort']] == $_POST)
+            {
+                $_SESSION['keyExists'] = true;
+            }
+        }
+    }
+
+
+    if ($_SESSION['keyExists'] == true)
+    {
+        $_SESSION['bestelling'][$bestKey]['aantal']++;
+        echo "ok";
+    }
+    else
+    {
+        $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
+        $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
+        $_SESSION['productCounter']++;
+        echo "noo";
+    }
+
+
+
+
+
+
+
+
+
 
 }
+
+
+echo "<pre>";
+print_r($_SESSION['bestelling']);
+echo "</pre>";
+
+
+
 
 
