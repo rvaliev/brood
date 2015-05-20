@@ -1,8 +1,8 @@
 <?php
 
 namespace src\ProjectBrood\data;
-use src\ProjectBrood\Entities\Brood;
-use src\ProjectBrood\Data\DBConnect;
+use src\ProjectBrood\entities\Brood;
+use src\ProjectBrood\data\DBConnect;
 use PDO;
 use Exception;
 
@@ -72,10 +72,15 @@ class BroodDAO
 
             foreach ($this->result as $row)
             {
-                $this->lijst[] = new Brood($row['brood_id'], $row['brood_naam'], $row['brood_samenstelling'], $row['brood_prijs'], $row['brood_image']);
+//                $this->lijst[] = new Brood($row['brood_id'], $row['brood_naam'], $row['brood_samenstelling'], $row['brood_prijs'], $row['brood_image']);
+                $this->lijst = new Brood($row['brood_id'], $row['brood_naam'], $row['brood_samenstelling'], $row['brood_prijs'], $row['brood_image']);
             }
 
+
             return $this->lijst;
+
+
+
         }
         catch(Exception $e){
             echo "Error: query failure";

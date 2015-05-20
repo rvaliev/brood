@@ -45,33 +45,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="overzicht.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/overzicht.php">
+      <file leaf-file-name="BroodBusiness.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectBrood/business/BroodBusiness.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.384615" vertical-offset="0" max-vertical-offset="1292">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="493">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="beleg.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/beleg.php">
+      <file leaf-file-name="BroodDAO.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectBrood/data/BroodDAO.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46234939" vertical-offset="1274" max-vertical-offset="1989">
-              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state vertical-scroll-proportion="-51.653847" vertical-offset="0" max-vertical-offset="1666">
+              <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
               <folding>
-                <marker date="1432113151000" expanded="true" signature="2189:2210" placeholder="..." />
+                <marker date="1432124997000" expanded="true" signature="546:565" placeholder="SELECT * FRO..brood..." />
+                <marker date="1432124997000" expanded="true" signature="1276:1314" placeholder="SELECT * FRO..brood..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="overzicht.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProjectBrood/presentation/overzicht.twig">
+      <file leaf-file-name="BelegBusiness.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectBrood/business/BelegBusiness.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1088">
-              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            <state vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="510">
+              <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Brood.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ProjectBrood/entities/Brood.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="935">
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -82,6 +93,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-19.615385" vertical-offset="0" max-vertical-offset="612">
               <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="overzicht.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/overzicht.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.82422453" vertical-offset="1142" max-vertical-offset="2125">
+              <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,21 +145,21 @@
         <option value="$PROJECT_DIR$/src/ProjectBrood/data/BelegDAO.class.php" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/business/BroodBusiness.class.php" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/business/BelegBusiness.class.php" />
-        <option value="$PROJECT_DIR$/src/ProjectBrood/data/DBConnect.php" />
-        <option value="$PROJECT_DIR$/src/ProjectBrood/entities/Beleg.php" />
-        <option value="$PROJECT_DIR$/test.php" />
-        <option value="$PROJECT_DIR$/src/ProjectBrood/entities/Brood.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/presentation/brood.twig" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/presentation/maintemplate.twig" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/presentation/beleg.twig" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/data/BelegDAO.php" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/presentation/overzicht.twig" />
-        <option value="$PROJECT_DIR$/src/ProjectBrood/data/BroodDAO.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/beleg.php" />
+        <option value="$PROJECT_DIR$/src/ProjectBrood/data/DBConnect.php" />
+        <option value="$PROJECT_DIR$/src/ProjectBrood/entities/Brood.php" />
+        <option value="$PROJECT_DIR$/src/ProjectBrood/entities/Beleg.php" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/business/BelegBusiness.php" />
+        <option value="$PROJECT_DIR$/src/ProjectBrood/data/BroodDAO.php" />
+        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/src/ProjectBrood/business/BroodBusiness.php" />
         <option value="$PROJECT_DIR$/overzicht.php" />
-        <option value="$PROJECT_DIR$/beleg.php" />
       </list>
     </option>
   </component>
@@ -389,7 +410,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25686592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25686592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -446,7 +467,9 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -586,30 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/data/DBConnect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1506647" vertical-offset="0" max-vertical-offset="731">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6277696" vertical-offset="0" max-vertical-offset="677">
-          <caret line="25" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="476">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectBrood/presentation/maintemplate.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9487952" vertical-offset="1053" max-vertical-offset="1921">
@@ -636,37 +635,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/entities/Brood.php">
+    <entry file="file://$PROJECT_DIR$/beleg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="204" max-vertical-offset="935">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/business/BelegBusiness.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6026588" vertical-offset="0" max-vertical-offset="677">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/data/BroodDAO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46234939" vertical-offset="917" max-vertical-offset="1581">
-          <caret line="72" column="43" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.7183735" vertical-offset="1019" max-vertical-offset="2618">
+          <caret line="88" column="75" selection-start-line="88" selection-start-column="75" selection-end-line="88" selection-end-column="75" />
           <folding>
-            <marker date="1431611650000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..brood..." />
-            <marker date="1431611650000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..brood..." />
+            <marker date="1432117094000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1432117094000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1432117094000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/business/BroodBusiness.php">
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/data/DBConnect.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55243725" vertical-offset="0" max-vertical-offset="677">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.12555392" vertical-offset="0" max-vertical-offset="731">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/presentation/overzicht.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27621862" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.384615" vertical-offset="207" max-vertical-offset="884">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/entities/Beleg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.10240964" vertical-offset="0" max-vertical-offset="935">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6277696" vertical-offset="0" max-vertical-offset="677">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -679,45 +695,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/presentation/overzicht.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075" vertical-offset="0" max-vertical-offset="1088">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/entities/Beleg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28313252" vertical-offset="271" max-vertical-offset="935">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ProjectBrood/data/BelegDAO.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5903614" vertical-offset="934" max-vertical-offset="1598">
+        <state vertical-scroll-proportion="0.6039157" vertical-offset="925" max-vertical-offset="1598">
           <caret line="78" column="32" selection-start-line="78" selection-start-column="32" selection-end-line="78" selection-end-column="32" />
+          <folding>
+            <marker date="1431611385000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..beleg..." />
+            <marker date="1431611385000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..beleg..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/business/BelegBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="510">
+          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/entities/Brood.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="935">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/business/BroodBusiness.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615" vertical-offset="0" max-vertical-offset="493">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProjectBrood/data/BroodDAO.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-51.653847" vertical-offset="0" max-vertical-offset="1666">
+          <caret line="79" column="32" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="32" />
+          <folding>
+            <marker date="1432124997000" expanded="true" signature="546:565" placeholder="SELECT * FRO..brood..." />
+            <marker date="1432124997000" expanded="true" signature="1276:1314" placeholder="SELECT * FRO..brood..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/overzicht.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.384615" vertical-offset="0" max-vertical-offset="1292">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.82422453" vertical-offset="1142" max-vertical-offset="2125">
+          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beleg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46234939" vertical-offset="1274" max-vertical-offset="1989">
-          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding>
-            <marker date="1432113151000" expanded="true" signature="2189:2210" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>

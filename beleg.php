@@ -50,14 +50,16 @@ else
  * If true, go to product overview.
  */
 
-if (empty($_SESSION['bestelling']))
-{
-    $_SESSION['productCounter'] = 0;
-    $_SESSION['bestelling'][0]['aantal'] = 1;
-}
+
 
 if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 {
+
+    if (empty($_SESSION['bestelling']))
+    {
+        $_SESSION['productCounter'] = 0;
+        $_SESSION['bestelling'][0]['aantal'] = 1;
+    }
 
 
     $_SESSION['keyExists'] = false;
@@ -71,6 +73,7 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
             if ($_SESSION['bestelling'][$bestKey][$_POST['broodSoort']] == $_POST)
             {
                 $_SESSION['keyExists'] = true;
+                $_SESSION['broodNr'] = $bestKey;
             }
         }
     }
@@ -78,13 +81,14 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 
     if ($_SESSION['keyExists'] == true)
     {
-        $_SESSION['bestelling'][$bestKey]['aantal']++;
+        $_SESSION['bestelling'][$_SESSION['broodNr']]['aantal']++;
         echo "ok";
     }
     else
     {
         $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
         $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
+
         $_SESSION['productCounter']++;
         echo "noo";
     }
@@ -92,6 +96,35 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 
 
 
+    /*    foreach ($_SESSION['bestelling'] as $bestKey => $bestRow)
+        {
+            if (array_key_exists($_POST['broodSoort'], $_SESSION['bestelling'][$bestKey]))
+            {
+                if ($_SESSION['bestelling'][$bestKey][$_POST['broodSoort']] == $_POST)
+                {
+                    $_SESSION['bestelling'][$bestKey]['aantal']++;
+                    echo "<pre>";
+                    print_r($_SESSION['bestelling'][$bestKey][$_POST['broodSoort']]);
+                    echo "</pre> OK";
+                }
+                else
+                {
+                    $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
+                    $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
+                    $_SESSION['productCounter']++;
+                    echo "bad 1";
+
+                }
+            }
+            else
+            {
+                $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
+                $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
+                $_SESSION['productCounter']++;
+                echo "bad 2";
+            }
+
+        }*/
 
 
 
@@ -102,7 +135,11 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 
 
 echo "<pre>";
-print_r($_SESSION['bestelling']);
+if (!empty($_SESSION['bestelling']))
+{
+    print_r($_SESSION['bestelling']);
+}
+
 echo "</pre>";
 
 

@@ -1,11 +1,11 @@
 <?php
 
-session_start();
+
 use src\ProjectBrood\business\BelegBusiness;
 use src\ProjectBrood\business\BroodBusiness;
 use Doctrine\Common\ClassLoader;
 
-
+session_start();
 /**
  * Connect with Doctrine.
  * Load ClassLoader to autoload classes.
@@ -25,7 +25,7 @@ $classLoader->register();
 
 
 
-foreach ($_SESSION['bestelling'] as $key => $bestelling) {
+/*foreach ($_SESSION['bestelling'] as $key => $bestelling) {
     foreach ($bestelling as $bestelRegel) {
         foreach ($bestelRegel as $belegKey => $belegRegel) {
             if (is_int($belegKey))
@@ -39,6 +39,7 @@ foreach ($_SESSION['bestelling'] as $key => $bestelling) {
             }
         }
 
+
         $objBrood = new BroodBusiness();
         $broden = $objBrood->overzichtBroodById($bestelRegel['broodSoort']);
         $eenBrood = $broden[0];
@@ -49,7 +50,53 @@ foreach ($_SESSION['bestelling'] as $key => $bestelling) {
 
 
     echo "Bestel nummer: $key";
+}*/
+
+
+
+
+
+foreach ($_SESSION['bestelling'] as $key => $bestelling)
+{
+    foreach ($bestelling as $bestelKey => $bestelRegel)
+    {
+
+        /**
+         * Getting 'Brood' list
+         */
+
+        if (is_int($bestelKey))
+        {
+            $objBrood = new BroodBusiness();
+            //        $bestelKey++;
+            $broden = $objBrood->overzichtBroodById($bestelKey);
+            echo "Soort broodje: <b>" . $broden->getNaam() . "</b><br>";
+        }
+
+        /**
+         * Getting 'Beleg' list
+         */
+
+        if (is_array($bestelRegel))
+        {
+            foreach ($bestelRegel as $belegKey => $belegRegel)
+            {
+                if (is_int($belegKey))
+                {
+                    $objBeleg = new BelegBusiness();
+                    $belegen = $objBeleg->overzichtBelegById($belegKey);
+
+                    $eenBeleg = $belegen[0];
+                    echo "Samenstelling: " . $eenBeleg->getNaam() . "<br>";
+
+
+                }
+            }
+        }
+    }
+    echo "<br>";
 }
+
 
 
 
@@ -69,3 +116,4 @@ $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
 $view = $twig->render("beleg.twig", array("belegen" => $belegen, "brood_id" => $_GET['id']));
 print($view);*/
+

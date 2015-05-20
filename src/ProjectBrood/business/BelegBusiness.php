@@ -1,7 +1,7 @@
 <?php
 
-namespace src\ProjectBrood\Business;
-use src\ProjectBrood\Data\BelegDAO;
+namespace src\ProjectBrood\business;
+use src\ProjectBrood\data\BelegDAO;
 
 class BelegBusiness
 {
