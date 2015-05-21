@@ -5,55 +5,52 @@
     <section class="clearFix">
         <div class="container">
             <h1 class="headLine">Welkom bij broodjes-online</h1>
-            <h3 class="sectionHeadLine">Stap 1: Kies één broodje:</h3>
+            <h3 class="sectionHeadLine">Stap 3: Overzicht van broodjes:</h3>
         </div>
     </section>
 
+    <form action="#" method="post">
+    {% for key, itemVanOverzicht in overzicht %}
     <section class="clearFix">
         <div class="container">
             <article class="clearFix">
                 <a class="productImageLink" href="#">
-                    <img class="productImage" src="public/img/klein_wit.jpg" alt="broodje"/>
+                    <img class="productImage" src="src/ProjectBrood/presentation/img/{{ itemVanOverzicht.brood_image }}" alt="broodje"/>
                 </a>
                 <div class="productContent clearFix">
                     <h1 class="productHeadLine">
-                        Klein wit
+                        {{ itemVanOverzicht.brood_naam }}
                     </h1>
-                    <a class="verwijderKnoop show-login" href="beleg.php?id=1">Verwijder</a>
+                    <a class="verwijderKnoop show-login" href="verwijder.php?id={{ key }}">Verwijder</a>
                     <h3 class="productDiscription">
-                        Ingredienten: bloem, gist, water, suiker, zout
+                        Samenstelling:
+                        {% for eenBeleg in itemVanOverzicht.beleg %}
+                        {{ eenBeleg }},
+                        {% endfor %}
                     </h3>
                 </div>
-            </article>
 
-            <article class="clearFix">
-                <a class="productImageLink" href="#">
-                    <img class="productImage" src="public/img/klein_wit.jpg" alt="broodje"/>
-                </a>
-                <div class="productContent clearFix">
-                    <h1 class="productHeadLine">
-                        Klein wit
-                    </h1>
-                    <a class="verwijderKnoop show-login" href="beleg.php?id=1">Verwijder</a>
-                    <h3 class="productDiscription">
-                        Ingredienten: bloem, gist, water, suiker, zout
-                    </h3>
+                <div class="aantalBroodjes clearFix">
+                       <input type="number" min="1" name="{{ key }}" value="{{ itemVanOverzicht.aantal }}"/>
                 </div>
             </article>
-
         </div>
 
+    </section>
 
-
-
+    {% endfor %}
+    <section class="clearFix">
+        <div class="container">
+            <input class="aantalBroodjesRefresh" type="submit" name="bestellingPlaatsen" value="Vernieuwen"/>
+        </div>
     </section>
 
     <section class="clearFix">
         <div class="controlKnopen clearFix">
             <a class="verderWinkelenKnoop" href="index.php">Verder winkelen</a>
-            <a class="bestellingPlaatsenKnoop" href="#">Beselling plaatsen</a>
+            <a class="bestellingPlaatsenKnoop" href="#">Bestelling plaatsen</a>
         </div>
     </section>
-
+    </form>
 
 {% endblock %}

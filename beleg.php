@@ -1,5 +1,6 @@
 <?php
 
+ob_start();
 session_start();
 use src\ProjectBrood\business\BelegBusiness;
 use Doctrine\Common\ClassLoader;
@@ -36,7 +37,7 @@ if (!empty($_GET['id']))
     Twig_Autoloader::register();
     $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
     $twig = new Twig_Environment($loader);
-    $view = $twig->render("beleg.twig", array("belegen" => $belegen, "brood_id" => $_GET['id']));
+    $view = $twig->render("beleg.twig", array("self" => $_SERVER['REQUEST_URI'], "belegen" => $belegen, "brood_id" => $_GET['id']));
     print($view);
 }
 else
@@ -82,67 +83,21 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
     if ($_SESSION['keyExists'] == true)
     {
         $_SESSION['bestelling'][$_SESSION['broodNr']]['aantal']++;
-        echo "ok";
     }
     else
     {
-        $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
         $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
-
+        $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
         $_SESSION['productCounter']++;
-        echo "noo";
+
     }
 
 
-
-
-    /*    foreach ($_SESSION['bestelling'] as $bestKey => $bestRow)
-        {
-            if (array_key_exists($_POST['broodSoort'], $_SESSION['bestelling'][$bestKey]))
-            {
-                if ($_SESSION['bestelling'][$bestKey][$_POST['broodSoort']] == $_POST)
-                {
-                    $_SESSION['bestelling'][$bestKey]['aantal']++;
-                    echo "<pre>";
-                    print_r($_SESSION['bestelling'][$bestKey][$_POST['broodSoort']]);
-                    echo "</pre> OK";
-                }
-                else
-                {
-                    $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
-                    $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
-                    $_SESSION['productCounter']++;
-                    echo "bad 1";
-
-                }
-            }
-            else
-            {
-                $_SESSION['bestelling'][$_SESSION['productCounter']][$_POST['broodSoort']] = $_POST;
-                $_SESSION['bestelling'][$_SESSION['productCounter']]['aantal'] = 1;
-                $_SESSION['productCounter']++;
-                echo "bad 2";
-            }
-
-        }*/
-
-
-
-
-
-
+    header("Location: overzicht.php");
 }
 
 
-echo "<pre>";
-if (!empty($_SESSION['bestelling']))
-{
-    print_r($_SESSION['bestelling']);
-}
 
-echo "</pre>";
-
-
-
+ob_flush();
 
 

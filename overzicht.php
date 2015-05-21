@@ -1,5 +1,6 @@
 <?php
 
+ob_start();
 
 use src\ProjectBrood\business\BelegBusiness;
 use src\ProjectBrood\business\BroodBusiness;
@@ -20,85 +21,65 @@ $classLoader->register();
  */
 
 
-
-
-
-
-
-/*foreach ($_SESSION['bestelling'] as $key => $bestelling) {
-    foreach ($bestelling as $bestelRegel) {
-        foreach ($bestelRegel as $belegKey => $belegRegel) {
-            if (is_int($belegKey))
-            {
-                $objBeleg = new BelegBusiness();
-                $belegen = $objBeleg->overzichtBelegById($belegKey);
-                echo "<pre>";
-                $eenBeleg = $belegen[0];
-                print_r($eenBeleg->getNaam());
-                echo "</pre>";
-            }
-        }
-
-
-        $objBrood = new BroodBusiness();
-        $broden = $objBrood->overzichtBroodById($bestelRegel['broodSoort']);
-        $eenBrood = $broden[0];
-        echo $eenBrood->getNaam() . "<br>";
-
-//        echo "Brood nummer: " . $bestelRegel['broodSoort'] . "<br>";
-    }
-
-
-    echo "Bestel nummer: $key";
-}*/
-
-
-
-
-
-foreach ($_SESSION['bestelling'] as $key => $bestelling)
+if (!empty($_SESSION['bestelling']))
 {
-    foreach ($bestelling as $bestelKey => $bestelRegel)
+    foreach ($_SESSION['bestelling'] as $key => $bestelling)
     {
-
         /**
-         * Getting 'Brood' list
+         * Array where all orders are stored
          */
+        $overzicht[$key]['aantal'] = $bestelling['aantal'];
 
-        if (is_int($bestelKey))
+        foreach ($bestelling as $bestelKey => $bestelRegel)
         {
-            $objBrood = new BroodBusiness();
-            //        $bestelKey++;
-            $broden = $objBrood->overzichtBroodById($bestelKey);
-            echo "Soort broodje: <b>" . $broden->getNaam() . "</b><br>";
-        }
 
-        /**
-         * Getting 'Beleg' list
-         */
+            /**
+             * Getting 'Brood' list
+             */
 
-        if (is_array($bestelRegel))
-        {
-            foreach ($bestelRegel as $belegKey => $belegRegel)
+            if (is_int($bestelKey))
             {
-                if (is_int($belegKey))
+                $overzicht[$key]['broodsoort'] = $bestelKey;
+
+                $objBrood = new BroodBusiness();
+//                $bestelKey++;
+                $broden = $objBrood->overzichtBroodById($bestelKey);
+
+
+                $overzicht[$key]['brood_id'] = $broden->getId();
+                $overzicht[$key]['brood_naam'] = $broden->getNaam();
+                $overzicht[$key]['brood_prijs'] = $broden->getPrijs();
+                $overzicht[$key]['brood_image'] = $broden->getImage();
+
+
+            }
+
+            /**
+             * Getting 'Beleg' list
+             */
+
+
+            if (is_array($bestelRegel))
+            {
+                foreach ($bestelRegel as $belegKey => $belegRegel)
                 {
-                    $objBeleg = new BelegBusiness();
-                    $belegen = $objBeleg->overzichtBelegById($belegKey);
+                    if (is_int($belegKey))
+                    {
+                        $objBeleg = new BelegBusiness();
+                        $belegen = $objBeleg->overzichtBelegById($belegKey);
+                        $eenBeleg = $belegen[0];
 
-                    $eenBeleg = $belegen[0];
-                    echo "Samenstelling: " . $eenBeleg->getNaam() . "<br>";
-
-
+                        $overzicht[$key]['beleg'][] = $eenBeleg->getNaam();
+                    }
                 }
             }
         }
     }
-    echo "<br>";
 }
-
-
-
+else
+{
+    $overzicht = array();
+}
 
 
 
@@ -110,10 +91,28 @@ foreach ($_SESSION['bestelling'] as $key => $bestelling)
  * Load beleg.twig file.
  * Send array $belegen and $_GET variable to beleg.twig.
  */
-/*require_once("lib/Twig/Autoloader.php");
+require_once("lib/Twig/Autoloader.php");
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
-$view = $twig->render("beleg.twig", array("belegen" => $belegen, "brood_id" => $_GET['id']));
-print($view);*/
+$view = $twig->render("overzicht.twig", array("overzicht" => $overzicht));
+print($view);
 
+if (isset($_POST['bestellingPlaatsen']))
+{
+    $count = count($_SESSION['bestelling']);
+
+    foreach ($_POST as $postKey => $postValue) {
+        if (is_int($postKey))
+        {
+            $_SESSION['bestelling'][$postKey]['aantal'] = $postValue;
+        }
+    }
+    header("Refresh: 0");
+}
+
+
+
+
+
+ob_flush();

@@ -35,6 +35,11 @@ header .headerContainer{
     color: white;
 }
 
+.logo a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .menu{
     margin-top: 1.5rem;
     float: right;
@@ -374,6 +379,41 @@ article{
 }
 
 
+
+.aantalBroodjes{
+    /*outline: 1px solid red;*/
+    float: right;
+    margin: 0;
+    /*width: 5rem;*/
+    /*height: 5rem;*/
+    padding-top: 2rem;
+}
+
+.aantalBroodjes input{
+    width: 3rem;
+    height: 2rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.aantalBroodjesRefresh{
+    float: right;
+    padding: 1rem;
+    background: none;
+    font-family: Arial, Verdana, sans-serif;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #28a010;
+    border: 1px solid #28a010;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+}
+
+.aantalBroodjesRefresh:hover{
+    color: #fff;
+    background: green;
+    cursor: pointer;
+}
 
 
 /**
