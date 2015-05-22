@@ -10,6 +10,10 @@ use Doctrine\Common\ClassLoader;
  * If not, load Twig etc..
  * Else redirect to index.php
  */
+
+/**
+ * todo: controle van broodje ID toevoegen, zodat bij een verkeerde ID naar index.php verwezen wordt.
+ */
 if (!empty($_GET['id']))
 {
     /**
@@ -50,9 +54,6 @@ else
  * Check if 'Verder' button has been pressed.
  * If true, go to product overview.
  */
-
-
-
 if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 {
 

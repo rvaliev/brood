@@ -1,7 +1,6 @@
 <?php
 
-/*
-use src\ProjectBrood\business\BroodBusiness;
+/*use src\ProjectBrood\business\UsersBusiness;
 use Doctrine\Common\ClassLoader;
 
 
@@ -12,35 +11,28 @@ $classLoader->register();
 
 
 
-$obj = new BroodBusiness();
+$obj = new UsersBusiness();
+//$broden = $obj->overzichtUser();
+
+
+$aa = $obj->overzichtUser();
+$aa = $aa[0];
 
 echo "<pre>";
-print_r($x = $obj->overzichtBrood());
-foreach ($x as $y) {
-    print_r($y->getId());
-}
-
+print_r($aa->getUserId());
 echo "</pre>";*/
 
+
 session_start();
-if (empty($_SESSION['ctr']))
-{
-    $_SESSION['ctr'] = 0;
-}
-
-
-$_SESSION['bestell'] = array($_SESSION['ctr'] => array(
-    'productCounter' => 0,
-    array('broodNummer' => 1)
-
-));
-
-
-$_SESSION['ctr']++;
-
-
-
 
 echo "<pre>";
-print_r($_SESSION['bestell']);
+print_r($_SESSION['user']);
 echo "</pre>";
+
+/*
+function better_crypt($input, $rounds = 10) {
+    $crypt_options = array('cost' => $rounds);
+    $hash = password_hash($input, PASSWORD_BCRYPT, $crypt_options);
+    return $hash; }
+$password_hash = better_crypt("123456");
+echo $password_hash;*/

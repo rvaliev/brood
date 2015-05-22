@@ -36,7 +36,6 @@ if (!empty($_SESSION['bestelling']))
             /**
              * Getting 'Brood' list
              */
-
             if (is_int($bestelKey))
             {
                 $overzicht[$key]['broodsoort'] = $bestelKey;
@@ -45,20 +44,16 @@ if (!empty($_SESSION['bestelling']))
 //                $bestelKey++;
                 $broden = $objBrood->overzichtBroodById($bestelKey);
 
-
                 $overzicht[$key]['brood_id'] = $broden->getId();
                 $overzicht[$key]['brood_naam'] = $broden->getNaam();
                 $overzicht[$key]['brood_prijs'] = $broden->getPrijs();
                 $overzicht[$key]['brood_image'] = $broden->getImage();
-
-
             }
+
 
             /**
              * Getting 'Beleg' list
              */
-
-
             if (is_array($bestelRegel))
             {
                 foreach ($bestelRegel as $belegKey => $belegRegel)
@@ -68,7 +63,6 @@ if (!empty($_SESSION['bestelling']))
                         $objBeleg = new BelegBusiness();
                         $belegen = $objBeleg->overzichtBelegById($belegKey);
                         $eenBeleg = $belegen[0];
-
                         $overzicht[$key]['beleg'][] = $eenBeleg->getNaam();
                     }
                 }
@@ -95,17 +89,31 @@ require_once("lib/Twig/Autoloader.php");
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
-$view = $twig->render("overzicht.twig", array("overzicht" => $overzicht));
+$view = $twig->render("overzicht.twig", array("overzicht" => $overzicht, "errorMessage" => $_SESSION['errorMessage']));
 print($view);
 
-if (isset($_POST['bestellingPlaatsen']))
+
+
+
+/**
+ * Vernieuwen van aantal bestelde artikelen in overzicht scherm.
+ */
+$_SESSION['errorMessage'] = "";
+
+if (isset($_POST['vernieuwen']))
 {
     $count = count($_SESSION['bestelling']);
 
+
     foreach ($_POST as $postKey => $postValue) {
-        if (is_int($postKey))
+        if ((is_int($postKey)) && ($postValue > 0))
         {
             $_SESSION['bestelling'][$postKey]['aantal'] = $postValue;
+        }
+        elseif((is_int($postKey)) && ($postValue <= 0))
+        {
+            $_SESSION['errorMessage'] = "Het aantal moet groter dan 0 zijn.";
+            header("Refresh: 0");
         }
     }
     header("Refresh: 0");

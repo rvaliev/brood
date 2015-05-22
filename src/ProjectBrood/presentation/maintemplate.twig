@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+{% block head %}
 <head>
     <meta charset="utf-8" />
     <title>Broodjeszaak</title>
@@ -9,6 +11,9 @@
     <link rel="stylesheet" href="src/ProjectBrood/presentation/css/style.css" /> {#пользовательские стили#}
 
 </head>
+
+{% endblock %}
+
 <body>
 
 {#CONTENT#}
@@ -46,7 +51,7 @@
     <a class="show-login login" href="#">Log in</a>
     <div class="lightbox-panel-login">
         <h3>Log in</h3>
-        <form id="login_form" action="#" method="post">
+        <form name="loginForm" id="login_form" action="authorization.php" method="post">
             <input class="login_login" type="text" name="login_login" placeholder="Login">
             <input class="login_pass" name="login_pass" type="password" placeholder="Wachtwoord">
             <input class="sbmt-btn" name="login_btn" type="submit" value="Log in">
