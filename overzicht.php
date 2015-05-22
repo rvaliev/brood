@@ -7,6 +7,7 @@ use src\ProjectBrood\business\BroodBusiness;
 use Doctrine\Common\ClassLoader;
 
 session_start();
+require('head.php');
 /**
  * Connect with Doctrine.
  * Load ClassLoader to autoload classes.
@@ -89,7 +90,7 @@ require_once("lib/Twig/Autoloader.php");
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
-$view = $twig->render("overzicht.twig", array("overzicht" => $overzicht, "errorMessage" => $_SESSION['errorMessage']));
+$view = $twig->render("overzicht.twig", array("overzicht" => $overzicht, "errorMessage" => $_SESSION['errorMessage'], "authorized" => $_SESSION['user']['authorized']));
 print($view);
 
 

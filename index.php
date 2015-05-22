@@ -1,7 +1,10 @@
 <?php
 
+session_start();
 use src\ProjectBrood\business\BroodBusiness;
 use Doctrine\Common\ClassLoader;
+
+require('head.php');
 
 
 require_once'Doctrine/Common/ClassLoader.php';
@@ -19,7 +22,8 @@ require_once("lib/Twig/Autoloader.php");
 Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
-$view = $twig->render("brood.twig", array("broden" => $broden));
+
+$view = $twig->render("brood.twig", array("broden" => $broden, "authorized" => $_SESSION['user']['authorized']));
 print($view);
 
 

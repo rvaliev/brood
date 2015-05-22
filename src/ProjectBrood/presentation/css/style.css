@@ -190,7 +190,7 @@ header .headerContainer{
     transform: translateY(-50%);
 }
 
-.register, .login{
+.register, .login, .logout, .profile{
     float: right;
     position: relative;
     text-decoration: none;
@@ -230,7 +230,7 @@ header .headerContainer{
     /*margin-right: 10px;*/
 }
 
-.register:hover, .login:hover, .profile_page:hover, .profile_logout:hover{
+.register:hover, .login:hover, .profile_page:hover, .profile_logout:hover, .logout:hover, .profile:hover{
     background: #ffffff;
     color: #4c4c4c;
 }
@@ -260,6 +260,24 @@ header .headerContainer{
 
 }
 
+
+.error_reporting{
+    visibility: hidden;
+
+    color: #ff0000;
+    box-sizing: border-box;
+
+}
+
+.success{
+    color: #00c200;
+}
+
+.error_reporting span{
+    text-align: center;
+    /*float: left;*/
+    margin-top: 1rem;
+}
 
 
 
