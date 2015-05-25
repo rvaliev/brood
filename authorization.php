@@ -7,6 +7,7 @@ use Doctrine\Common\ClassLoader;
 
 use src\ProjectBrood\exceptions\LoginVerkeerdException;
 use src\ProjectBrood\exceptions\LoginMisluktException;
+use src\ProjectBrood\exceptions\EmailNotVerifiedException;
 
 if (isset($_POST['login_login']))
 {
@@ -15,8 +16,8 @@ if (isset($_POST['login_login']))
     $classLoader->register();
 
 
-    $login = $_POST['login_login'];
-    $password = $_POST['login_pass'];
+    $login = filter_var($_POST['login_login'], FILTER_VALIDATE_EMAIL);
+    $password = trim(htmlspecialchars($_POST['login_pass']));
 
 
 
@@ -34,17 +35,13 @@ if (isset($_POST['login_login']))
         echo "<span class='success'>U bent ingelogd</span>";
 
 ?>
-
         <script>
             setTimeout(function(){
                 location.reload();
             }, 2000);
         </script>
 
-        <?php
-
-
-
+<?php
 
     }
     catch(LoginVerkeerdException $e)
@@ -53,14 +50,6 @@ if (isset($_POST['login_login']))
          * todo Foutmelding in een variabele steken
          */
         echo "<span class='error_message'>Verkeerd email of wachtwoord</span>";
-        ?>
-        <!--<script>
-            jQuery(".error_reporting").css('visibility','visible');
-        </script>-->
-
-
-
-        <?php
         exit();
     }
     catch(LoginMisluktException $e)
@@ -69,6 +58,10 @@ if (isset($_POST['login_login']))
          * todo Foutmelding in een variabele steken
          */
         echo "Login mislukt";
+    }
+    catch(EmailNotVerifiedException $e)
+    {
+        echo "Uw account is nog niet geverifieerd via email";
     }
 
 }

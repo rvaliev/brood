@@ -23,11 +23,11 @@ print_r($aa->getUserId());
 echo "</pre>";*/
 
 
-session_start();
+/*session_start();
 
 echo "<pre>";
 print_r($_SESSION['user']);
-echo "</pre>";
+echo "</pre>";*/
 
 /*
 function better_crypt($input, $rounds = 10) {
@@ -36,3 +36,23 @@ function better_crypt($input, $rounds = 10) {
     return $hash; }
 $password_hash = better_crypt("123456");
 echo $password_hash;*/
+
+
+
+/*$var = "mailmail.ru";
+
+echo filter_var($var, FILTER_VALIDATE_EMAIL);*/
+
+
+echo "<pre>";
+$email_message = "Klik op onderstaande link om uw profiel te verifieeren.\n\n";
+$email_message .= '<a href="http://' . $_SERVER['HTTP_HOST'] . '/index.php">Verifieer</a> uw profiel';
+print_r($email_message);
+echo "</pre>";
+
+
+
+
+?>
+
+

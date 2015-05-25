@@ -33,23 +33,45 @@ jQuery(function(){
 
 
 
-    /*jQuery('#login_form').submit(function(e) {
-     e.preventDefault();
-     jQuery.ajax({
-     type:"POST",
-     url:"/index.php",
-     data: jQuery("#login_form").serialize(),
-     success: function(response){
+    /**
+     * Verhandelen van inloggen.
+     */
+    jQuery('#login_form').submit(function(e) {
+        e.preventDefault();
+        jQuery.ajax({
+            type:"POST",
+            async:false,
+            url:"authorization.php",
+            data: jQuery("#login_form").serialize(),
+            success: function(response){
+                jQuery(".error_reporting").addClass('result').css('visibility','visible');
+                jQuery(".result").html(response);
 
-     jQuery(".lightbox-panel-login").fadeIn(300).html(response);
+            }
+        });
+    }); // End verhandelen van inloggen
 
-     *//*jQuery("#contactFormBlock").addClass('result');
-     jQuery(".result").html(response);*//*
-     }
 
-     });
-     //return false;
-     });*/
+
+
+
+    /**
+     * Verhandelen van registratie.
+     */
+    /*jQuery('#register_form').submit(function(e) {
+        e.preventDefault();
+        jQuery.ajax({
+            type:"POST",
+            async:false,
+            url:"registration.php",
+            data: jQuery("#register_form").serialize(),
+            success: function(response){
+                jQuery("#register_form").addClass('result');
+                jQuery(".result").html(response);
+
+            }
+        });
+    });*/ // End verhandelen van registratie
 
 
 

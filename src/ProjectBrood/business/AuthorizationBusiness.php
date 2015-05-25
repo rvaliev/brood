@@ -4,6 +4,7 @@
 namespace src\ProjectBrood\business;
 use src\ProjectBrood\data\UsersDAO;
 use src\ProjectBrood\exceptions\LoginVerkeerdException;
+use src\ProjectBrood\exceptions\EmailNotVerifiedException;
 
 //include('../../../src/ProjectBrood/data/UsersDAO.php');
 
@@ -29,10 +30,21 @@ class AuthorizationBusiness
         $this->usersDAO = new UsersDAO();
         $this->lijst = $this->usersDAO->authorizeUser($login);
 
+        /**
+         * Chech if user exists in DB
+         */
         if (!isset($this->lijst)) throw new LoginVerkeerdException();
-        $this->passwordHash = $this->lijst[0]->getPassword();
 
+        /**
+         * Get hashed password from DB and check if by user inserted password matches with hashed one.
+         */
+        $this->passwordHash = $this->lijst[0]->getPassword();
         $this->checkPassword($this->passwordHash, $this->password);
+
+        /**
+         * Check if account is verified
+         */
+        if($this->lijst[0]->getVerification() != 1) throw new EmailNotVerifiedException();
 
         return $this->lijst[0];
 
@@ -47,6 +59,8 @@ class AuthorizationBusiness
     private function checkPassword($passwordHash, $passwordEntered)
     {
         if(!password_verify($passwordEntered, $passwordHash)) throw new LoginVerkeerdException();
+
+
     }
 
 }

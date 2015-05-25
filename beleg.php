@@ -4,6 +4,7 @@ ob_start();
 session_start();
 require('head.php');
 use src\ProjectBrood\business\BelegBusiness;
+use src\ProjectBrood\business\BroodBusiness;
 use Doctrine\Common\ClassLoader;
 
 /**
@@ -33,6 +34,11 @@ if (!empty($_GET['id']))
     $belegen = $obj->overzichtBeleg();
 
 
+    $objBrood = new BroodBusiness();
+    $broden = $objBrood->overzichtBroodById($_GET['id']);
+
+
+
     /**
      * Connect to Twig.
      * Load beleg.twig file.
@@ -42,7 +48,7 @@ if (!empty($_GET['id']))
     Twig_Autoloader::register();
     $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
     $twig = new Twig_Environment($loader);
-    $view = $twig->render("beleg.twig", array("self" => $_SERVER['REQUEST_URI'], "belegen" => $belegen, "brood_id" => $_GET['id'], "authorized" => $_SESSION['user']['authorized']));
+    $view = $twig->render("beleg.twig", array("self" => $_SERVER['REQUEST_URI'], "belegen" => $belegen, "brood_id" => $_GET['id'], "authorized" => $_SESSION['user']['authorized'], "brood_prijs" => $broden->getPrijs()));
     print($view);
 }
 else
@@ -97,6 +103,7 @@ if ((isset($_POST['sendButton'])) && (!empty($_POST['broodSoort'])))
 
     header("Location: overzicht.php");
 }
+
 
 
 

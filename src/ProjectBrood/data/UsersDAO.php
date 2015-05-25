@@ -93,7 +93,65 @@ class UsersDAO
         }
         catch(Exception $e){
             echo "Error: query failure";
-//            return false;
+            die();
+        }
+    }
+
+
+    public function createUser($userVoornaam, $userFamilienaam, $userEmail, $userPassword, $userEmailHash)
+    {
+        self::connectToDB();
+
+
+        $this->sql = "INSERT INTO users (
+						voornaam,
+						familienaam,
+						email,
+						wachtwoord,
+						registratie_datum,
+						email_hash
+						)
+			VALUES (?, ?, ?, ?, NOW(), ?)";
+
+
+        try{
+            $this->query = $this->handler->prepare($this->sql);
+            $this->query->execute(array($userVoornaam, $userFamilienaam, $userEmail, $userPassword, $userEmailHash));
+
+            $this->query->closeCursor();
+            $this->handler = null;
+
+            return true;
+
+
+        }
+        catch(Exception $e){
+            echo "Error: query failure";
+            die();
+        }
+    }
+
+
+
+    public function findUserByEmail($email)
+    {
+        self::connectToDB();
+        $this->sql = "SELECT email FROM users WHERE email = ?";
+
+        try{
+            $this->query = $this->handler->prepare($this->sql);
+            $this->query->execute(array($email));
+            $this->result = $this->query->fetchAll(PDO::FETCH_ASSOC);
+
+            $this->query->closeCursor();
+            $this->handler = null;
+
+            return $this->result;
+
+
+        }
+        catch(Exception $e){
+            echo "Error: query failure";
             die();
         }
     }

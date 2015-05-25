@@ -513,7 +513,17 @@ article{
     color: white;
 }
 
+.lowerCase{
+    text-transform: lowercase;
+}
 
+.totaalPrijs{
+    float: right;
+}
+
+.errorVanAantal{
+    color: #ff0000;
+}
 
 
 

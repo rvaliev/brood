@@ -13,6 +13,7 @@
 
 <form class="clearFix belegForm" action="{{ self }}" method="post">
     <input type="hidden" value="{{ brood_id }}" name="broodSoort"/>
+    <input type="hidden" value="{{ brood_prijs }}" name="broodPrijs"/>
 
     {% for beleg in belegen %}
         <section class="clearFix">
@@ -23,11 +24,11 @@
                     </a>
                     <div class="productContent clearFix">
                         <h1 class="productHeadLine">
-                            {{ beleg.getNaam() }}
+                            {{ beleg.getNaam() }} ({{ beleg.getPrijs() }}€)
                         </h1>
 
                         <label class="belegCheckLabel" for="sla">Kies:</label>
-                        <input class="belegCheck" type="checkbox" name="{{ beleg.getId() }}"/>
+                        <input class="belegCheck" value="{{ beleg.getPrijs() }}" type="checkbox" name="{{ beleg.getId() }}"/>
 
                         <h3 class="productDiscription">
                             {{ beleg.getOmschrijving() }}

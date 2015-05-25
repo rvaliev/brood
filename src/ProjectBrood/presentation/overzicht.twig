@@ -19,14 +19,16 @@
                 </a>
                 <div class="productContent clearFix">
                     <h1 class="productHeadLine">
-                        {{ itemVanOverzicht.brood_naam }}
+                        {{ itemVanOverzicht.brood_naam }} met
+                        <span class="lowerCase">
+                            {% for eenBeleg in itemVanOverzicht.beleg %}
+                                {{ eenBeleg }},
+                            {% endfor %}
+                        </span>
                     </h1>
                     <a class="verwijderKnoop show-login" href="verwijder.php?id={{ key }}">Verwijder</a>
                     <h3 class="productDiscription">
-                        Samenstelling:
-                        {% for eenBeleg in itemVanOverzicht.beleg %}
-                        {{ eenBeleg }},
-                        {% endfor %}
+                        Prijs: {{ itemVanOverzicht.sandwichPrijs }}€
                     </h3>
                 </div>
 
@@ -41,15 +43,16 @@
     {% endfor %}
     <section class="clearFix">
         <div class="container">
-            <input class="aantalBroodjesRefresh" type="submit" name="vernieuwen" value="Vernieuwen"/>
-            <h3>{{ errorMessage }}</h3>
+            <h3 class="totaalPrijs clearFix">Totaal prijs: {{ totaalBestellingPrijs }}€</h3>
+            <input class="aantalBroodjesRefresh clear" type="submit" name="vernieuwen" value="Vernieuwen"/>
+            <h3 class="errorVanAantal">{{ errorMessage }}</h3>
         </div>
     </section>
 
     <section class="clearFix">
         <div class="controlKnopen clearFix">
             <a class="verderWinkelenKnoop" href="index.php">Verder winkelen</a>
-            <a class="bestellingPlaatsenKnoop" href="#">Bestelling plaatsen</a>
+            <a class="bestellingPlaatsenKnoop" href="bestelling.php">Bestelling plaatsen</a>
         </div>
     </section>
     </form>

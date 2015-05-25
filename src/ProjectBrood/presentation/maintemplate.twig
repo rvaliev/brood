@@ -31,7 +31,7 @@
     <a class="show-register register" href="#">Registreer</a>
     <div class="lightbox-panel-register">
         <h3>Registreer</h3>
-        <form id="register_form" method="post" action="#">
+        <form name="register_form" id="register_form" method="post" action="registration.php">
             <input type="text" class="register_name" name="register_name" placeholder="Voornaam">
             <input type="text" class="register_name" name="register_surname" placeholder="Familienaam">
             <input type="text" class="register_email" name="register_email" placeholder="E-mail">
@@ -39,6 +39,9 @@
             <input type="password" class="register_password_rt" name="register_password_rt" placeholder="Herhaal wachtwoord">
             <input class="sbmt-btn" name="register_btn" type="submit" value="Registreer">
         </form>
+        <div class="error_reporting clearFix">
+            <span class="clearFix">Verkeerde registratie</span>
+        </div>
         <div class="close-register">
             <a class="close-panel-register" href="#">Sluit venster</a>
         </div>
@@ -117,26 +120,6 @@
 <script src="src/ProjectBrood/presentation/js/jquery-1.11.3.min.js"></script>
 <script src="src/ProjectBrood/presentation/js/scripts.js"></script>
 
-
-
-{#Verhandelen van inloggen#}
-<script>
-    jQuery('#login_form').submit(function(e) {
-        e.preventDefault();
-        jQuery.ajax({
-            type:"POST",
-            async:false,
-            url:"authorization.php",
-            data: jQuery("#login_form").serialize(),
-            success: function(response){
-                jQuery(".error_reporting").addClass('result').css('visibility','visible');
-                jQuery(".result").html(response);
-
-            }
-        });
-    });
-
-</script>
 
 </body>
 </html>
