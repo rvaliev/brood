@@ -54,9 +54,10 @@ if (!empty($_SESSION['bestelling']))
                 $overzicht[$key]['totaalBroodPrijs'] = $_SESSION['bestelling'][$key][$broden->getId()]['broodPrijs'];
 
 
-                /*echo "<pre>";
-                print_r($bestelKey);
-                echo "</pre>";*/
+
+//                echo "<pre>";
+//                print_r($_SESSION['bestelling'][$key][$bestelKey]);
+//                echo "</pre>";
             }
 
 
@@ -83,11 +84,16 @@ if (!empty($_SESSION['bestelling']))
 
 
                     }
+
+                    unset($_SESSION['bestelling'][$key][$bestelKey]['sendButton']); // Removes 'sendButton' from session array
+
                 }
 
                 $_SESSION['bestelling'][$key]['sandwichPrijs'] = $totPrijs[$key] + $overzicht[$key]['brood_prijs'];
                 $totaalBestellingPrijs = ($_SESSION['bestelling'][$key]['sandwichPrijs'] * $_SESSION['bestelling'][$key]['aantal']) + $totaalBestellingPrijs;
                 $overzicht[$key]['sandwichPrijs'] = $_SESSION['bestelling'][$key]['sandwichPrijs'];
+
+
             }
         }
     }
@@ -105,7 +111,7 @@ else
 
 if (!isset($_SESSION['errorMessage']))
 {
-//    $_SESSION['errorMessage'] = "";
+    $_SESSION['errorMessage'] = "";
 }
 
 
@@ -159,8 +165,6 @@ $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
 $view = $twig->render("overzicht.twig", array("overzicht" => $overzicht, "errorMessage" => $_SESSION['errorMessage'], "authorized" => $_SESSION['user']['authorized'], "totaalBestellingPrijs" => $_SESSION['totaalBestellingPrijs']));
 print($view);
-
-
 
 
 

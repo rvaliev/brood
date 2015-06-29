@@ -40,7 +40,7 @@ if (isset($_POST['register_btn']))
 
         /**
          * Check by email if user exists
-         */
+        */
         $userControle = $obj->zoekGebruikerMetEmail($userEmail);
         if(!empty($userControle)) throw new GebruikerBestaatException();
 

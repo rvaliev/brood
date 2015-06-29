@@ -488,12 +488,13 @@ article{
 }
 
 
-.verderWinkelenKnoop, .bestellingPlaatsenKnoop{
+.verderWinkelenKnoop, .bestellingPlaatsenKnoop, .loginFromBestelling, .registerFromBestelling{
     background: white;
     padding: 1rem 1.5rem;
     color: green;
     float: left;
     font-size: 1.1rem;
+    margin: 0 auto;
     margin-top: 2rem;
     position: relative;
     border: 1px solid green;
@@ -502,12 +503,31 @@ article{
     width: 11rem;
 }
 
-.bestellingPlaatsenKnoop{
+
+.betalenKnoop{
+    background: white;
+    padding: 1rem 1.5rem;
+    color: green;
+    /*float: none;*/
+    margin: 0 auto;
+    font-size: 1.1rem;
+    margin-top: 9rem;
+    position: relative;
+    border: 1px solid green;
+    text-decoration: none;
+    text-align: center;
+    width: 11rem;
+    display: block;
+
+}
+
+
+.bestellingPlaatsenKnoop, .registerFromBestelling{
     margin-left: 0.8rem;
 }
 
 
-.verderWinkelenKnoop:hover, .bestellingPlaatsenKnoop:hover{
+.verderWinkelenKnoop:hover, .bestellingPlaatsenKnoop:hover, .loginFromBestelling:hover, .registerFromBestelling:hover, .betalenKnoop:hover{
     cursor: pointer;
     background: green;
     color: white;
@@ -525,7 +545,21 @@ article{
     color: #ff0000;
 }
 
+.mandje{
+    float: right;
+    /*outline: 1px solid red;*/
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+}
 
+.winkelMandje{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.winkelMandje:hover{
+    text-decoration: underline;
+}
 
 
 

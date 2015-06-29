@@ -48,7 +48,7 @@ if (!empty($_GET['id']))
     Twig_Autoloader::register();
     $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
     $twig = new Twig_Environment($loader);
-    $view = $twig->render("beleg.twig", array("self" => $_SERVER['REQUEST_URI'], "belegen" => $belegen, "brood_id" => $_GET['id'], "authorized" => $_SESSION['user']['authorized'], "brood_prijs" => $broden->getPrijs()));
+    $view = $twig->render("beleg.twig", array("self" => $_SERVER['REQUEST_URI'], "belegen" => $belegen, "brood_id" => $_GET['id'], "authorized" => $_SESSION['user']['authorized'], "brood_prijs" => $broden->getPrijs(), "totaalBestellingPrijs" => $_SESSION['totaalBestellingPrijs']));
     print($view);
 }
 else

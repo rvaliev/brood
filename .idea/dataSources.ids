@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - broodjeszaak@localhost" uuid="9c8e6392-74d8-4e9d-9074-8493b987183b">
-    <database-info product="MySQL" version="5.6.21-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+  <data-source name="MySQL - broodjeszaak@localhost" uuid="860f23fb-b626-4aab-96bc-27f1d9a33d73">
+    <database-info product="MySQL" version="5.5.38" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
     <schema name="" catalog="broodjeszaak"/>
     <table name="beleg" schema="" catalog="broodjeszaak" type="TABLE">
       <column name="beleg_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="beleg_naam" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <column name="beleg_samenstelling" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
-      <column name="beleg_prijs" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="beleg_prijs" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <column name="beleg_image" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="beleg_id"/>
+      <exported-key name="broodje_samenstelling_ibfk_3" table="broodje_samenstelling" schema="" catalog="broodjeszaak" columns="beleg_id"/>
+      <index name="beleg_id" unique="false" columns="beleg_id"/>
     </table>
-    <table name="broden" schema="" catalog="broodjeszaak" type="TABLE">
+    <table name="bestel_regel" schema="" catalog="broodjeszaak" type="TABLE">
+      <column name="bestel_regel_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="bestelling_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="aantal" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sandwich_prijs" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="bestel_regel_id"/>
+      <foreign-key name="bestel_regel_ibfk_1" columns="bestelling_id" ref-table="bestelling" ref-schema="" ref-catalog="broodjeszaak" ref-columns="bestelling_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="broodje_samenstelling_ibfk_1" table="broodje_samenstelling" schema="" catalog="broodjeszaak" columns="bestel_regel_id"/>
+    </table>
+    <table name="bestelling" schema="" catalog="broodjeszaak" type="TABLE">
+      <column name="bestelling_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="totaal_prijs" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="bestelling_id"/>
+      <foreign-key name="bestelling_ibfk_1" columns="user_id" ref-table="users" ref-schema="" ref-catalog="broodjeszaak" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="bestel_regel_ibfk_1" table="bestel_regel" schema="" catalog="broodjeszaak" columns="bestelling_id"/>
+    </table>
+    <table name="brood" schema="" catalog="broodjeszaak" type="TABLE">
       <column name="brood_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="brood_naam" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <column name="brood_samenstelling" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
-      <column name="brood_prijs" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="brood_prijs" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <column name="brood_image" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="brood_id"/>
+      <exported-key name="broodje_samenstelling_ibfk_2" table="broodje_samenstelling" schema="" catalog="broodjeszaak" columns="brood_id"/>
+      <index name="brood_id" unique="false" columns="brood_id"/>
     </table>
-    <table name="compositie" schema="" catalog="broodjeszaak" type="TABLE">
-      <column name="sandwich_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    <table name="broodje_samenstelling" schema="" catalog="broodjeszaak" type="TABLE">
+      <column name="samenstelling_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="bestel_regel_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="beleg_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="bestel_prijs" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <primary-key name="PRIMARY" columns="sandwich_id"/>
-    </table>
-    <table name="sandwich" schema="" catalog="broodjeszaak" type="TABLE">
-      <column name="sandwich_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="brood_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="compositie_prijs" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <column name="sandwich_prijs" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
-      <primary-key name="PRIMARY" columns="sandwich_id"/>
+      <primary-key name="PRIMARY" columns="samenstelling_id"/>
+      <foreign-key name="broodje_samenstelling_ibfk_3" columns="beleg_id" ref-table="beleg" ref-schema="" ref-catalog="broodjeszaak" ref-columns="beleg_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="broodje_samenstelling_ibfk_1" columns="bestel_regel_id" ref-table="bestel_regel" ref-schema="" ref-catalog="broodjeszaak" ref-columns="bestel_regel_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="broodje_samenstelling_ibfk_2" columns="brood_id" ref-table="brood" ref-schema="" ref-catalog="broodjeszaak" ref-columns="brood_id" update-rule="3" delete-rule="3" deferrability="2"/>
     </table>
     <table name="users" schema="" catalog="broodjeszaak" type="TABLE">
       <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -45,6 +65,8 @@
       <column name="verified" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
       <column name="email_hash" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="bestelling_ibfk_1" table="bestelling" schema="" catalog="broodjeszaak" columns="user_id"/>
+      <index name="user_id" unique="false" columns="user_id"/>
     </table>
   </data-source>
 </component>

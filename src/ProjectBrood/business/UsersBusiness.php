@@ -5,6 +5,7 @@ namespace src\ProjectBrood\business;
 use src\ProjectBrood\data\UsersDAO;
 use src\ProjectBrood\exceptions\RegistratieMisluktException;
 use src\ProjectBrood\exceptions\GebruikerBestaatException;
+use src\ProjectBrood\exceptions\OngeldigeAanvraagException;
 
 //include('../../../src/ProjectBrood/data/UsersDAO.php');
 
@@ -75,6 +76,22 @@ class UsersBusiness
             'X-Mailer: PHP/' . phpversion();
         @mail($emailTo, $emailSubject, $emailMessage, $headers);
     }
+
+
+    public function verifyUser($emailHash)
+    {
+        $this->usersDAO = new UsersDAO();
+        $this->lijst = $this->usersDAO->findUserByEmailHash($emailHash);
+
+        if (!isset($this->lijst)) throw new OngeldigeAanvraagException();
+
+        $this->usersDAO->changeUserVerificationStatus($emailHash);
+
+        return $this->lijst;
+    }
+
+
+
 
 }
 

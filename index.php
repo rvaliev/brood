@@ -23,7 +23,8 @@ Twig_Autoloader::register();
 $loader = new Twig_Loader_Filesystem("src/ProjectBrood/presentation");
 $twig = new Twig_Environment($loader);
 
-$view = $twig->render("brood.twig", array("broden" => $broden, "authorized" => $_SESSION['user']['authorized']));
+$view = $twig->render("brood.twig", array("broden" => $broden, "authorized" => $_SESSION['user']['authorized'], "totaalBestellingPrijs" => $_SESSION['totaalBestellingPrijs']));
 print($view);
+
 
 

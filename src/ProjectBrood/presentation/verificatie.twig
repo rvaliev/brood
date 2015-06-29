@@ -1,0 +1,24 @@
+{% extends "maintemplate.twig" %}
+
+{% block content %}
+    <section class="clearFix">
+        <div class="container">
+            <h1 class="headLine">Email verificatie</h1>
+        </div>
+    </section>
+
+    <section class="clearFix">
+        <div class="container">
+            <article class="clearFix">
+                <div class="message">
+                    {% if verifiedUser != 'error' %}
+                        Hallo <b>{{ verifiedUser.voornaam }}</b>! Uw profiel is geactiveerd. U kan nu inloggen met uw email <b>{{ verifiedUser.email }}</b>.
+                    {% else %}
+                        Oeps, deze pagina bestaat niet.
+                    {% endif %}
+                </div>
+            </article>
+        </div>
+    </section>
+
+{% endblock %}

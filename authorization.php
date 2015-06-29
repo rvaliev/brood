@@ -2,6 +2,7 @@
 
 ob_start();
 session_start();
+require('head.php');
 use src\ProjectBrood\business\AuthorizationBusiness;
 use Doctrine\Common\ClassLoader;
 
@@ -16,7 +17,7 @@ if (isset($_POST['login_login']))
     $classLoader->register();
 
 
-    $login = filter_var($_POST['login_login'], FILTER_VALIDATE_EMAIL);
+    $login = filter_var(trim($_POST['login_login']), FILTER_VALIDATE_EMAIL);
     $password = trim(htmlspecialchars($_POST['login_pass']));
 
 

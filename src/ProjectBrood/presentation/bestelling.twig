@@ -1,0 +1,37 @@
+{% extends "maintemplate.twig" %}
+
+{% block content %}
+    <section class="clearFix">
+        <div class="container">
+            <h1 class="headLine">Bestelling plaatsen</h1>
+        </div>
+    </section>
+
+    <section class="clearFix">
+        <div class="container">
+            <article class="clearFix">
+                <div class="message">
+                    {% if bestellingStatus != false %}
+                        {% if successMessage is empty %}
+                            <div class="controlKnopenBetalen clearFix">
+                                Klik op betalen om bestelling af te ronden.
+                                <form action="bestelling.php" method="post" class="betalenForm clearFix">
+                                    <input type="submit" name="betalenKnoop" value="Betalen" class="betalenKnoop"/>
+                                </form>
+                            </div>
+                        {% else %}
+                            {{ successMessage }}
+                        {% endif %}
+                    {% else %}
+                        U bent niet ingelogd. Om bestelling te kunnen plaatsen moet u ingelogd zijn.
+                        <div class="controlKnopen clearFix">
+                            <a href="#" class="show-login loginFromBestelling">Log in</a>
+                            <a href="#" class="show-register registerFromBestelling">Registreer</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </article>
+        </div>
+    </section>
+
+{% endblock %}

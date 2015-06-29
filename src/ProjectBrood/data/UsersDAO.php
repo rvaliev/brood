@@ -118,6 +118,8 @@ class UsersDAO
             $this->query = $this->handler->prepare($this->sql);
             $this->query->execute(array($userVoornaam, $userFamilienaam, $userEmail, $userPassword, $userEmailHash));
 
+     //       echo $this->handler->lastInsertId() . "<br>";
+
             $this->query->closeCursor();
             $this->handler = null;
 
@@ -152,6 +154,53 @@ class UsersDAO
         }
         catch(Exception $e){
             echo "Error: query failure";
+            die();
+        }
+    }
+
+
+    public function findUserByEmailHash($emailHash)
+    {
+        self::connectToDB();
+        $this->sql = "SELECT user_id, voornaam, email FROM users WHERE email_hash = ? AND verified = 0";
+
+        try
+        {
+            $this->query = $this->handler->prepare($this->sql);
+            $this->query->execute(array($emailHash));
+            $this->result = $this->query->fetchAll(PDO::FETCH_ASSOC);
+
+            $this->query->closeCursor();
+            $this->handler = null;
+
+            return $this->result;
+        }
+        catch(Exception $e)
+        {
+            echo "Error: query failed";
+            die();
+        }
+    }
+
+
+    public function changeUserVerificationStatus($emailHash)
+    {
+        self::connectToDB();
+        $this->sql = "UPDATE users SET verified = 1 WHERE email_hash = ?";
+
+        try
+        {
+            $this->query = $this->handler->prepare($this->sql);
+            $this->query->execute(array($emailHash));
+
+            $this->query->closeCursor();
+            $this->handler = null;
+
+            return $this->result;
+        }
+        catch(Exception $e)
+        {
+            echo "Error: query failed";
             die();
         }
     }
